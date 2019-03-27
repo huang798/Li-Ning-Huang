@@ -66,6 +66,21 @@ a {
     .navbar .listItem:hover {
       color: #ff6e3a; }
 
+#mobile_navbar .button {
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  top: 10px; }
+  #mobile_navbar .button:before, #mobile_navbar .button:after {
+    position: absolute;
+    content: " ";
+    border: solid 1px white;
+    width: 30px;
+    left: 0px;
+    top: -10px; }
+  #mobile_navbar .button:after {
+    top: 10px; }
+
 .white_bg {
   background-color: #fff; }
   .white_bg .navbar_logo {
@@ -82,8 +97,22 @@ a {
             transition-duration: 0.2s; }
     .white_bg .navbar_list a:hover {
       color: #ff6e3a; }
+  .white_bg #button {
+    background-color: #777; }
+    .white_bg #button:before, .white_bg #button:after {
+      position: absolute;
+      content: " ";
+      border: solid 1px #777;
+      width: 30px;
+      left: 0px;
+      top: -10px; }
+    .white_bg #button:after {
+      top: 10px; }
+  .white_bg .list_collect:before {
+    border: solid 1px red;
+    width: 50px; }
 
-.myheader {
+#myheader {
   background-image: url("../images/doggy.png");
   height: 500px;
   background-size: cover;
@@ -92,25 +121,37 @@ a {
   background-blend-mode: overlay;
   background-attachment: fixed;
   background-position: center left; }
-  .myheader #name {
+  #myheader #name {
     text-align: center;
     top: 30%; }
-    .myheader #name h1 {
+    #myheader #name h1 {
       font-size: 64px;
       color: #F8F8F8; }
-    .myheader #name hr {
+    #myheader #name hr {
       width: 50px;
       border: solid 2px #ff6e3a;
       margin-left: auto;
       margin-right: auto;
       margin-top: 20px; }
-  .myheader #job_title {
+  #myheader #job_title {
     text-align: center;
     top: 34%; }
-    .myheader #job_title p {
+    #myheader #job_title p {
       color: #F8F8F8;
       font-size: 19.2px; }
-  .myheader #mouse_icon {
+  #myheader .link_wrap {
+    text-align: center;
+    top: 33%;
+    font-size: 40px; }
+    #myheader .link_wrap #github {
+      margin-right: 5px; }
+    #myheader .link_wrap #medium {
+      margin-left: 5px; }
+  #myheader .link_wrap a {
+    color: white; }
+    #myheader .link_wrap a:hover {
+      color: #ff6e3a; }
+  #myheader #mouse_icon {
     position: absolute;
     left: 50%;
     bottom: 15%;
@@ -122,7 +163,7 @@ a {
     display: block;
     z-index: 10;
     opacity: 0.7; }
-  .myheader #wheel {
+  #myheader #wheel {
     position: relative;
     border-radius: 10px;
     background: #fff;
@@ -166,7 +207,7 @@ a {
           justify-content: center;
   padding-top: 50px;
   padding-bottom: 100px; }
-  #intro_section .intro_left .photo {
+  #intro_section .intro_left .intro_photo {
     background-image: url("../images/photo.jpg");
     top: 18%;
     width: 300px;
@@ -174,9 +215,13 @@ a {
     background-position: center center;
     background-size: 80%;
     border-radius: 50%;
-    -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
-            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
-    margin-right: 150px; }
+    margin-right: 150px;
+    -webkit-transition-duration: 2s;
+         -o-transition-duration: 2s;
+            transition-duration: 2s; }
+  #intro_section .intro_left .here {
+    -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8); }
   #intro_section .intro_left .dialog {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -291,6 +336,85 @@ a {
     font-size: 150px;
     margin-bottom: 20px; }
 
+#experience_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #F4F6F6;
+  padding-top: 100px;
+  padding-bottom: 100px; }
+  #experience_section .left_wrap {
+    margin-top: 250px; }
+    #experience_section .left_wrap .fa-envelope-open-text {
+      font-size: 150px; }
+    #experience_section .left_wrap h1 {
+      color: #ff6e3a;
+      margin-top: 20px; }
+  #experience_section .right_wrap {
+    margin-left: 250px; }
+  #experience_section .exp {
+    width: 450px;
+    -webkit-box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+    background-color: #212121;
+    color: white;
+    padding: 30px 30px;
+    -webkit-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+    margin-left: 150px; }
+    #experience_section .exp:before {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 50px;
+      top: -25px;
+      -webkit-transform: rotate(15deg);
+          -ms-transform: rotate(15deg);
+              transform: rotate(15deg);
+      left: 170px;
+      -webkit-box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+              box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+      background-color: white; }
+    #experience_section .exp .date {
+      color: #F3C266;
+      font-size: 18px; }
+    #experience_section .exp .title {
+      color: #F07178;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px; }
+    #experience_section .exp p {
+      font-size: 16px;
+      width: 350px;
+      line-height: 24px; }
+  #experience_section #exp2 {
+    background-color: #181818;
+    margin-left: 30px;
+    -webkit-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+            transform: rotate(3deg); }
+    #experience_section #exp2:before {
+      -webkit-transform: rotate(-20deg);
+          -ms-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+      left: 250px; }
+  #experience_section #exp3 {
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    margin-left: 180px; }
+    #experience_section #exp3:before {
+      -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+              transform: rotate(0deg);
+      left: 300px; }
+
 #works_section {
   padding-bottom: 50px;
   background-color: #333;
@@ -306,5 +430,36 @@ a {
     margin-right: auto;
     margin-bottom: 50px;
     margin-top: -10px; }
+
+#contact_section {
+  background-color: #ff6e3a;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #contact_section .photo {
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("../images/photo.jpg");
+    width: 80px;
+    height: 80px;
+    background-position: center center;
+    background-size: 80%;
+    border-radius: 50%;
+    -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6); }
+  #contact_section hr {
+    width: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto; }
+  #contact_section #email, #contact_section #phone {
+    font-size: 16px; }
+  #contact_section #phone {
+    margin-top: -10px; }
+  #contact_section i {
+    margin-right: 15px; }
+  #contact_section p {
+    display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */

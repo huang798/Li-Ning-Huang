@@ -3,23 +3,39 @@
 
 
 //讓Header維持在使用者視窗高度
-document.querySelector(".myheader").style.height = window.innerHeight+"px";
+document.querySelector("#myheader").style.height = window.innerHeight+"px";
 
 window.onresize = function(){
-   document.querySelector('.myheader').style.height = window.innerHeight+"px";
+   document.querySelector('#myheader').style.height = window.innerHeight+"px";
 };
 
 
-//如果使用者視窗移動，執行特定動作
+//如果使用者視窗大於0，則將導覽列轉為白色
 window.onscroll=function(){
-        var top = document.documentElement.scrollTop;
+  navbar();
+  moving();
+};
+function navbar(){
+  var top = document.documentElement.scrollTop;
         if(top > 0){
-        	var top = document.querySelector('.navbar');
+          var top = document.querySelector('.navbar');
             top.classList.add('white_bg');
-        }else{ 
+        }
+        else{ 
             document.querySelector('.navbar').classList.remove('white_bg');
         };
-};
+      };
+
+function moving(){
+  var top = document.documentElement.scrollTop;
+  if(top > window.innerHeight - 250){
+    var photo = document.querySelector('.intro_photo')
+    photo.classList.add('here')
+  }
+  else{
+    document.querySelector('.intro_photo').classList.remove('here');
+  }
+}
 
 //滑動function
 function scrollTo(element, to, duration) {
@@ -57,26 +73,23 @@ Math.easeInOutQuad = function (t, b, c, d) {
 function scrolltoShow(e){
   var click_item = e.srcElement.hash;
   var offset;
+  if (click_item == "#myheader")
+    offset = document.querySelector('#myheader').offsetTop;
   if (click_item == "#intro_section")
-    offset = document.querySelector('#intro_section').offsetTop;
+    offset = document.querySelector('#intro_section').offsetTop - 50;
   if (click_item == "#skill_section")
     offset = document.querySelector('#skill_section').offsetTop;
+  if (click_item == "#experience_section")
+    offset = document.querySelector('#experience_section').offsetTop;
   if (click_item == "#works_section")
     offset = document.querySelector('#works_section').offsetTop;
-  if (click_item == "#contact_section")
-    offset = document.querySelector('#contact_section').offsetTop;
-  // console.log(click_item);
-
-  // var offset = document.querySelector('#intro_section').offsetTop - 100;
+  
+ 
   scrollTo(document.documentElement, offset, 1000);
 };
 
-var navbar_click = document.querySelector('.navbar_list')
+var navbar_click = document.querySelector('.navbar')
 navbar_click.addEventListener('click', scrolltoShow ,false);
-
-// function here(e){
-//   console.log(e.srcElement.hash);
-// }
 
 
 //JS自動打字機--------------------------------------------------
