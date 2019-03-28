@@ -1,6 +1,20 @@
 //skrollr初始化
 // var s = skrollr.init();
 
+// $('.button_wrap').click(function(e){
+//   // console.log('clickhere')
+//   $('.openmenu').toggleClass('active');
+//   console.log(e)
+// })
+
+
+// var hamburger_navbar = document.querySelector(".button_wrap");
+// hamburger_navbar.addEventListener('click', menu_open, false);
+
+// function menu_open(e){
+//   console.log(e);
+// };
+
 
 //讓Header維持在使用者視窗高度
 document.querySelector("#myheader").style.height = window.innerHeight+"px";
