@@ -10,11 +10,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="navbar" id="mobile_navbar"><a class="navbar_logo" href="#myheader">LN</a>
-      <div class="button_wrap">
-        <div class="button" id="button"></div>
-      </div>
-      <div class="openmenu"><a class="listItem" href="#intro_section">關於我</a><a class="listItem" href="#skill_section">技能</a><a class="listItem" href="#experience_section">經驗</a><a class="listItem" href="#works_section">作品集</a></div>
+    <div class="navbar desktop_navbar"><a class="navbar_logo" href="#myheader">LN</a>
+      <div class="navbar_list"><a class="listItem" href="#intro_section">關於我</a><a class="listItem" href="#skill_section">技能</a><a class="listItem" href="#experience_section">經驗</a><a class="listItem" href="#works_section">作品集</a></div>
+    </div>
+    <div class="navbar mobile_navbar"><a class="navbar_logo" href="#myheader">LN</a>
+      <div class="hamburger"><span id="nottop"></span></div>
+      <ul style="display: none">
+        <li><a class="listItem" href="#intro_section">關於我</a></li>
+        <li><a class="listItem" href="#skill_section">技能</a></li>
+        <li><a class="listItem" href="#experience_section">經驗 </a></li>
+        <li><a class="listItem" href="#works_section">作品集</a></li>
+      </ul>
     </div>
     <div id="myheader">
       <div id="name">

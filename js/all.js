@@ -1,26 +1,25 @@
 //skrollr初始化
 // var s = skrollr.init();
 
-// $('.button_wrap').click(function(e){
-//   // console.log('clickhere')
-//   $('.openmenu').toggleClass('active');
-//   console.log(e)
-// })
+$('.hamburger').click(menuHandler);
+
+function menuHandler(e){
+  $('.mobile_navbar ul').stop().slideToggle();
+};
 
 
-// var hamburger_navbar = document.querySelector(".button_wrap");
-// hamburger_navbar.addEventListener('click', menu_open, false);
-
-// function menu_open(e){
-//   console.log(e);
-// };
-
+//用來監看特定位置，點擊回饋點擊內容
+$('.navbar').click(function(e){
+  console.log(e);
+});
 
 //讓Header維持在使用者視窗高度
-document.querySelector("#myheader").style.height = window.innerHeight+"px";
+var height = window.innerHeight + 'px';
+$('#myheader').css('height', height);
 
 window.onresize = function(){
-   document.querySelector('#myheader').style.height = window.innerHeight+"px";
+   var height = window.innerHeight + 'px';
+  $('#myheader').css('height', height);
 };
 
 
@@ -32,11 +31,12 @@ window.onscroll=function(){
 function navbar(){
   var top = document.documentElement.scrollTop;
         if(top > 0){
-          var top = document.querySelector('.navbar');
-            top.classList.add('white_bg');
+          $('.desktop_navbar').attr('id', 'white_bg');
+          $('.mobile_navbar').attr('id', 'white_bg');
         }
-        else{ 
-            document.querySelector('.navbar').classList.remove('white_bg');
+        else{
+          $('.desktop_navbar').removeAttr('id');
+          $('.mobile_navbar').removeAttr('id');
         };
       };
 
@@ -48,8 +48,8 @@ function moving(){
   }
   else{
     document.querySelector('.intro_photo').classList.remove('here');
-  }
-}
+  };
+};
 
 //滑動function
 function scrollTo(element, to, duration) {
@@ -85,25 +85,30 @@ Math.easeInOutQuad = function (t, b, c, d) {
 
 //將視野挪動到使用者指定的地方
 function scrolltoShow(e){
+  console.log('here');
   var click_item = e.srcElement.hash;
   var offset;
   if (click_item == "#myheader")
-    offset = document.querySelector('#myheader').offsetTop;
+    offset = $('#myheader').offset().top;
   if (click_item == "#intro_section")
-    offset = document.querySelector('#intro_section').offsetTop - 50;
+    offset = $('#intro_section').offset().top;
   if (click_item == "#skill_section")
-    offset = document.querySelector('#skill_section').offsetTop;
+    offset = $('#skill_section').offset().top;
   if (click_item == "#experience_section")
-    offset = document.querySelector('#experience_section').offsetTop;
+    offset = $('#experience_section').offset().top;
   if (click_item == "#works_section")
-    offset = document.querySelector('#works_section').offsetTop;
-  
+    offset = $('#works_section').offset().top;  
  
   scrollTo(document.documentElement, offset, 1000);
 };
 
+// $('.navbar').click(scrolltoShow);
 var navbar_click = document.querySelector('.navbar')
 navbar_click.addEventListener('click', scrolltoShow ,false);
+
+var navbar_click_mobile = document.querySelector('.mobile_navbar ul')
+navbar_click_mobile.addEventListener('click', scrolltoShow ,false);
+navbar_click_mobile.addEventListener('click', menuHandler ,false);
 
 
 //JS自動打字機--------------------------------------------------
@@ -434,14 +439,3 @@ var directionRevealBoostrap = (0, _directionReveal2.default)({
 });
 
 },{"./direction-reveal.js":1}]},{},[2])
-
-
-
-
-
-
-
-//用來監看特定位置，點擊回饋點擊內容
-// document.querySelector(".header").addEventListener('click',function(e){
-// 	console.log(e);
-// },false);

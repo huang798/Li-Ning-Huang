@@ -37,6 +37,8 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -70,84 +72,81 @@ a {
     .navbar .listItem:hover {
       color: #ff6e3a; }
 
-#mobile_navbar .button_wrap {
-  width: 30px;
-  height: 30px; }
-
-#mobile_navbar .button {
-  width: 30px;
-  height: 2px;
-  background-color: #fff;
-  top: 12px; }
-  #mobile_navbar .button:before, #mobile_navbar .button:after {
-    position: absolute;
-    content: " ";
-    border: solid 1px white;
-    width: 30px;
-    left: 0px;
-    top: -10px; }
-  #mobile_navbar .button:after {
-    top: 10px; }
-
-.white_bg {
-  background-color: #fff; }
-  .white_bg .navbar_logo {
-    color: #777;
-    -webkit-transition-duration: 0.2s;
-         -o-transition-duration: 0.2s;
-            transition-duration: 0.2s; }
-    .white_bg .navbar_logo:hover {
-      color: #ff6e3a; }
-  .white_bg .navbar_list a {
-    color: #777;
-    -webkit-transition-duration: 0.2s;
-         -o-transition-duration: 0.2s;
-            transition-duration: 0.2s; }
-    .white_bg .navbar_list a:hover {
-      color: #ff6e3a; }
-  .white_bg #button {
-    background-color: #777; }
-    .white_bg #button:before, .white_bg #button:after {
-      position: absolute;
-      content: " ";
-      border: solid 1px #777;
-      width: 30px;
-      left: 0px;
-      top: -10px; }
-    .white_bg #button:after {
-      top: 10px; }
-  .white_bg .list_collect:before {
-    border: solid 1px red;
-    width: 50px; }
-  .white_bg .openmenu {
-    background-color: #fff; }
-    .white_bg .openmenu a {
-      color: #777; }
-
-.openmenu {
+.mobile_navbar {
   display: none;
-  border: solid 1px white;
-  border-top: none;
-  top: 55px;
-  position: fixed;
-  right: 0px;
-  width: 100%;
-  -webkit-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  padding-right: 40px; }
-  .openmenu a {
-    display: block;
-    line-height: 30px;
-    text-decoration: none;
-    color: white;
-    text-align: right;
-    -webkit-transition-duration: 0.5s;
-         -o-transition-duration: 0.5s;
-            transition-duration: 0.5s; }
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  @media screen and (max-width: 576px) {
+    .mobile_navbar {
+      padding: 12px 50px; } }
+  .mobile_navbar .navbar_logo {
+    line-height: 30px; }
+  .mobile_navbar .hamburger span {
+    display: inline-block;
+    margin-bottom: 2px;
+    height: 2px;
+    width: 30px;
+    border: solid 1px white; }
+    .mobile_navbar .hamburger span:before, .mobile_navbar .hamburger span:after {
+      content: "";
+      width: 30px;
+      height: 2px;
+      border: solid 1px white;
+      position: absolute;
+      top: -10px;
+      left: -1px; }
+    .mobile_navbar .hamburger span:after {
+      top: 10px; }
+  .mobile_navbar .navbar.mobile_navbar .hamburger span {
+    cursor: pointer; }
+  .mobile_navbar ul {
+    width: 100%;
+    margin-top: 20px;
+    line-height: 30px; }
+    .mobile_navbar ul li {
+      list-style: none;
+      width: 100%;
+      text-align: right;
+      text-decoration: none; }
+      .mobile_navbar ul li a {
+        margin-right: 0px;
+        color: white; }
+      .mobile_navbar ul li a.listItem {
+        margin-right: 0px; }
 
-.active {
-  display: initial; }
+#white_bg {
+  background-color: #fff; }
+  #white_bg .navbar_logo {
+    color: #777;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
+    #white_bg .navbar_logo:hover {
+      color: #ff6e3a; }
+  #white_bg .navbar_list a {
+    color: #777;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
+    #white_bg .navbar_list a:hover {
+      color: #ff6e3a; }
+  #white_bg span#nottop {
+    border: solid 1px #777; }
+  #white_bg span#nottop:after, #white_bg span#nottop:before {
+    border: solid 1px #777; }
+  #white_bg ul li a.listItem {
+    color: #777; }
+
+@media screen and (max-width: 576px) {
+  .desktop_navbar {
+    display: none; }
+  .mobile_navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
 
 #myheader {
   background-image: url("../images/doggy.png");
@@ -168,6 +167,9 @@ a {
     #myheader #name h1 {
       font-size: 64px;
       color: #F8F8F8; }
+      @media screen and (max-width: 576px) {
+        #myheader #name h1 {
+          font-size: 50px; } }
     #myheader #name hr {
       width: 50px;
       border: solid 2px #ff6e3a;
@@ -180,6 +182,9 @@ a {
     #myheader #job_title p {
       color: #F8F8F8;
       font-size: 19.2px; }
+      @media screen and (max-width: 576px) {
+        #myheader #job_title p {
+          font-size: 16px; } }
   #myheader .link_wrap {
     text-align: center;
     top: 33%;
@@ -204,6 +209,9 @@ a {
     display: block;
     z-index: 10;
     opacity: 0.7; }
+    @media screen and (max-width: 576px) {
+      #myheader #mouse_icon {
+        display: none; } }
   #myheader #wheel {
     position: relative;
     border-radius: 10px;
@@ -215,6 +223,9 @@ a {
     margin-right: auto;
     -webkit-animation: wheel_roll 1s linear infinite;
             animation: wheel_roll 1s linear infinite; }
+    @media screen and (max-width: 576px) {
+      #myheader #wheel {
+        display: none; } }
 
 @-webkit-keyframes wheel_roll {
   0% {
@@ -269,6 +280,10 @@ a {
       #intro_section .intro_left .intro_photo {
         margin-left: auto;
         margin-right: auto; } }
+    @media screen and (max-width: 576px) {
+      #intro_section .intro_left .intro_photo {
+        width: 200px;
+        height: 200px; } }
   #intro_section .intro_left .here {
     -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8); }
@@ -288,6 +303,12 @@ a {
     border: solid 1px black;
     text-align: center;
     font-size: 16px; }
+    @media screen and (max-width: 576px) {
+      #intro_section .intro_left .dialog {
+        width: 200px;
+        height: 40px;
+        font-size: 12px;
+        padding-top: 10px; } }
     #intro_section .intro_left .dialog:before {
       content: "";
       border-bottom: solid 1px black;
@@ -318,6 +339,9 @@ a {
     border: solid 1px #ccc;
     margin-top: 2px;
     margin-left: 4px; }
+    @media screen and (max-width: 576px) {
+      #intro_section .intro_left #dialog1:after, #intro_section .intro_left #dialog2:after {
+        margin-top: 0px; } }
   #intro_section .intro_text {
     top: 16%;
     width: 500px;
