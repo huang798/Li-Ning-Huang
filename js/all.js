@@ -9,9 +9,9 @@ function menuHandler(e){
 
 
 //用來監看特定位置，點擊回饋點擊內容
-$('.navbar').click(function(e){
-  console.log(e);
-});
+// $('.navbar').click(function(e){
+//   console.log(e);
+// });
 
 //讓Header維持在使用者視窗高度
 var height = window.innerHeight + 'px';
@@ -85,7 +85,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
 
 //將視野挪動到使用者指定的地方
 function scrolltoShow(e){
-  console.log('here');
+  event.preventDefault();
   var click_item = e.srcElement.hash;
   var offset;
   if (click_item == "#myheader")
@@ -102,7 +102,7 @@ function scrolltoShow(e){
   scrollTo(document.documentElement, offset, 1000);
 };
 
-// $('.navbar').click(scrolltoShow);
+$('.navbar').click(scrolltoShow);
 var navbar_click = document.querySelector('.navbar')
 navbar_click.addEventListener('click', scrolltoShow ,false);
 
